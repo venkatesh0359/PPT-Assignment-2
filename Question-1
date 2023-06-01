@@ -1,1 +1,20 @@
+import java.util.Arrays;
+
+public class GroupIntegersIntoPairs {
+
+  public static int groupIntegersIntoPairs(int[] nums) {
+    Arrays.sort(nums);
+    int sumOfMins = 0;
+    for (int i = 0; i < nums.length; i += 2) {
+      sumOfMins += Math.min(nums[i], nums[i + 1]);
+    }
+    return sumOfMins;
+  }
+
+  public static void main(String[] args) {
+ 
+    int[] nums = {1, 4, 3, 2};
+    System.out.println(groupIntegersIntoPairs(nums));
+  }
+}
 
