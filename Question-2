@@ -1,1 +1,34 @@
+import java.util.*;
+
+public class AliceAndCandies {
+
+    public static int solve(int[] candyType) {
+        
+        Map<Integer, Integer> candyCount = new HashMap<>();
+        for (int candy : candyType) {
+            candyCount.put(candy, candyCount.getOrDefault(candy, 0) + 1);
+        }
+
+        
+        int numTypes = candyCount.size();
+
+       
+        int maxCandies = numTypes / 2;
+
+       
+        int maxTypes = 0;
+        for (int candy : candyCount.keySet()) {
+            if (candyCount.get(candy) <= maxCandies) {
+                maxTypes++;
+            }
+        }
+
+        return maxTypes;
+    }
+
+    public static void main(String[] args) {
+        int[] candyType = {1, 1, 2, 2, 3, 3};
+        System.out.println(solve(candyType));
+    }
+}
 
