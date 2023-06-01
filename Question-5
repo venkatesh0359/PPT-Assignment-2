@@ -1,1 +1,37 @@
+import java.util.*;
+
+public class MaximumProductOfThreeNumbers {
+
+    public static int solve(int[] nums) {
+        
+        int maxProduct = Integer.MIN_VALUE;
+
+        
+        int largest1 = Integer.MIN_VALUE;
+        int largest2 = Integer.MIN_VALUE;
+        int largest3 = Integer.MIN_VALUE;
+        for (int num : nums) {
+            if (num > largest1) {
+                largest3 = largest2;
+                largest2 = largest1;
+                largest1 = num;
+            } else if (num > largest2) {
+                largest3 = largest2;
+                largest2 = num;
+            } else if (num > largest3) {
+                largest3 = num;
+            }
+        }
+
+      
+        maxProduct = Math.max(maxProduct, largest1 * largest2 * largest3);
+
+        return maxProduct;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3};
+        System.out.println(solve(nums));
+    }
+}
 
