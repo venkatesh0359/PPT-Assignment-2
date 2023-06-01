@@ -1,1 +1,31 @@
+import java.util.*;
+
+public class CanPlaceFlowers {
+
+    public static boolean canPlaceFlowers(int[] flowerbed, int n) {
+       
+        int pointer = 0;
+
+        
+        while (pointer < flowerbed.length) {
+            // If the current plot is empty and the next plot is empty, plant a flower.
+            if (flowerbed[pointer] == 0 && (pointer + 1 == flowerbed.length || flowerbed[pointer + 1] == 0)) {
+                flowerbed[pointer] = 1;
+                n--;
+            }
+
+           
+            pointer++;
+        }
+
+      
+        return n == 0;
+    }
+
+    public static void main(String[] args) {
+        int[] flowerbed = {1, 0, 0, 0, 1};
+        int n = 1;
+        System.out.println(canPlaceFlowers(flowerbed, n));
+    }
+}
 
